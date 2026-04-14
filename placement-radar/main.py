@@ -3,7 +3,8 @@ from config import SEEN_FILE
 from src.utils.logger import logger
 from src.core.deduplicator import Deduplicator
 from src.core.filters import filter_items
-from src.notify.telegram import notify_all
+from src.notify.telegram import notify_all as notify_telegram
+from src.notify.whatsapp import notify_all_whatsapp
 
 # Import all sources
 from src.sources.github import GitHubJobsSource
@@ -55,7 +56,11 @@ def main():
     
     # Step 4: Notify & Record
     if new_items:
-        notified_count = notify_all(new_items)
+        # Send via Telegram
+        notify_telegram(new_items)
+        
+        # Send via WhatsApp (CallMeBot)
+        notify_all_whatsapp(new_items)
         
         # Only mark as seen if we successfully found them and potentially notified them
         # Alternatively, mark all as seen regardless of notification success
