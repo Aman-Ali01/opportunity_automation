@@ -26,6 +26,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          cd placement-radar
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
@@ -33,13 +34,17 @@ jobs:
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
-        run: python main.py
+          CALLMEBOT_PHONE: ${{ secrets.CALLMEBOT_PHONE }}
+          CALLMEBOT_API_KEY: ${{ secrets.CALLMEBOT_API_KEY }}
+        run: |
+          cd placement-radar
+          python main.py
 
       - name: Commit and Push seen.json
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/seen.json
+          git add placement-radar/data/seen.json
           # Commit will fail if seen.json hasn't changed. That's fine.
           git commit -m "chore(data): auto-update seen.json from pipeline" || echo "No changes to commit"
           git push

@@ -19,7 +19,7 @@ class UnstopSource(BaseSource):
             # We want internships(4), jobs(5), and hackathons(2)
             url = "https://unstop.com/api/public/opportunity/search-result"
             params = {
-                "opportunity": "hackathons,internships,jobs",
+                "opportunity": "hackathons,internships,jobs,contest,challenge",
                 "per_page": 15,
                 "oppstatus": "open"
             }
