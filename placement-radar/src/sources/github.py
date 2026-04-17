@@ -22,7 +22,7 @@ class GitHubJobsSource(BaseSource):
             # e.g.: "internship 2025" or "off-campus placement"
             url = "https://api.github.com/search/issues"
             params = {
-                "q": "internship label:hiring state:open",
+                "q": "internship OR hiring OR LFX OR \"open source\" state:open",
                 "sort": "created",
                 "order": "desc",
                 "per_page": 10

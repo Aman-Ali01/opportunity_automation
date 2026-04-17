@@ -22,7 +22,9 @@ if not CALLMEBOT_PHONE or not CALLMEBOT_API_KEY:
 KEYWORDS = [
     "intern", "internship", "sde", "software", "developer", 
     "hackathon", "fellowship", "remote", "frontend", "backend", 
-    "fullstack", "full-stack", "2025", "2026", "fresher", "grad"
+    "fullstack", "full-stack", "2025", "2026", "2027", "fresher", "grad",
+    "open source program", "lfx", "maang", "placement", "research", 
+    "betch", "btech", "b.tech"
 ]
 
 # Database paths

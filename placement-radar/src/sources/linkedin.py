@@ -17,8 +17,8 @@ class LinkedInJobsSource(BaseSource):
         """
         items = []
         try:
-            keywords = urllib.parse.quote("software engineer intern OR developer")
-            location = urllib.parse.quote("India")
+            keywords = urllib.parse.quote("software engineer OR intern OR developer OR LFX OR placement OR research")
+            location = urllib.parse.quote("India OR Remote")
             url = f"https://www.linkedin.com/jobs/search?keywords={keywords}&location={location}&f_TPR=r86400&position=1&pageNum=0"
             
             headers = {
